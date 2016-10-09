@@ -22,6 +22,16 @@
 
 @implementation PollMessageTableView
 @synthesize arrayData =_arrayData;
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self =[super initWithFrame:frame];
+    if (self) {
+        [self awakeFromNib];
+    }
+    return self;
+}
+
 -(void)awakeFromNib{
     [super awakeFromNib];
     [self creatUIView];

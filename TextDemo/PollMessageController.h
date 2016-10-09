@@ -11,13 +11,6 @@
 
 @interface PollMessageController : UIViewController<PollMessageTableDelegate>
 
-@property (weak, nonatomic) IBOutlet PollMessageTableView *table_view;
-
-@property (weak, nonatomic) IBOutlet UIButton *pushBtn;
-@property (weak, nonatomic) IBOutlet UIButton *addDefactBtn;
-
-- (IBAction)PushBtnClick:(id)sender;
-
-- (IBAction)AddDefactBtnClick:(id)sender;
+@property (strong, nonatomic)PollMessageTableView *table_view;
 
 @end

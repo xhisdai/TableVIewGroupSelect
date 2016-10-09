@@ -12,9 +12,9 @@
 
 @property (nonatomic ,copy)void(^block)(UIButton *btn);
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIButton *button;
-- (IBAction)ButtonClick:(id)sender;
+@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) UIButton *button;
+
 
 - (void)CellFroData:(PollMessageModel *)model button:(NSInteger)btnTag block:(void(^)(UIButton *btn))ButtonClickBlock;
 

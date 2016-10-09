@@ -18,13 +18,23 @@
 
 }
 
+- (PollMessageTableView *)table_view{
+    if (_table_view ==nil) {
+        _table_view =[[PollMessageTableView alloc]initWithFrame:CGRectMake(0, 0, 320, 504)];
+        _table_view.pollTableDelegate =self;
+    }
+    return _table_view;
+}
+
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-
+    
+    [self.view addSubview:self.table_view];
+    
     [self getPollMessTableViewData];
-    _table_view.pollTableDelegate =self;
-    _pushBtn.userInteractionEnabled =_addDefactBtn.userInteractionEnabled =NO;
+    
+    
 }
 
 
@@ -49,7 +59,6 @@
     }
     
     _table_view.arrayData =dataArray;
-    _pushBtn.userInteractionEnabled =_addDefactBtn.userInteractionEnabled =YES;
 
 
 }
