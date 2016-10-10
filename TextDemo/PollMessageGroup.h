@@ -14,7 +14,7 @@
 @property (nonatomic,strong)NSString *titleName;
 
 @property (nonatomic, assign, getter = isOpened) BOOL opened;
-
+@property (nonatomic, assign) BOOL isOK;
 + (instancetype)PollMessWithDict:(NSDictionary *)dict;
 - (instancetype)initWithDict:(NSDictionary *)dict;
 

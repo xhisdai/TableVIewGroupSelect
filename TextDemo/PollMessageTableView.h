@@ -10,8 +10,8 @@
 
 @protocol PollMessageTableDelegate <NSObject>
 
--(void)CellClickToTitle:(NSString *)string;
-
+//回调VC 检查所有group是否选定 改变全选按钮状态
+- (void)CellClickAllSelectStatus;
 @end
 
 @interface PollMessageTableView : UITableView

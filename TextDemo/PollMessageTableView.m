@@ -46,10 +46,6 @@
 
 }
 
-#pragma mark --PollMessageHeaderDelegate
--(void)ClickHeaderViewButton{
-    [self reloadData];
-}
 
 -(void)setArrayData:(NSMutableArray *)arrayData{
     _arrayData =arrayData;
@@ -105,6 +101,24 @@
     {
         model.imgBool =@1;
     }
+
+    for(PollMessageModel * model in group.PollMessArrays)
+    {
+        if ([model.imgBool integerValue]==0) {
+            group.isOK =NO;
+            break;
+        }
+        else
+        {
+            group.isOK =YES;
+            
+        }
+    }
+    
+    if ([self.pollTableDelegate respondsToSelector:@selector(CellClickAllSelectStatus)]) {
+        [self.pollTableDelegate CellClickAllSelectStatus];
+    }
+    
     [self reloadSections:[[NSIndexSet alloc]initWithIndex:sec] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -115,12 +129,19 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     
     [tableView  deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+#pragma mark --点击head 展开分组--
+-(void)ClickHeaderViewButton{
+    [self reloadData];
+}
+#pragma mark --点击分组的选择按钮--
+- (void)ClickSelectGroupButton:(UIButton *)sender{
+    NSInteger section =sender.tag /1000;//根据之前传的section 取出 刷新一组
+    [self reloadSections:[[NSIndexSet alloc]initWithIndex:section] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    PollMessageGroup *group =_arrayData[indexPath.section];
-    PollMessageModel *model =group.PollMessArrays[indexPath.row];
-    
-    if ([self.pollTableDelegate respondsToSelector:@selector(CellClickToTitle:)]) {
-        [self.pollTableDelegate CellClickToTitle:model.title];
+    if ([self.pollTableDelegate respondsToSelector:@selector(CellClickAllSelectStatus)]) {
+        [self.pollTableDelegate CellClickAllSelectStatus];
     }
 }
 
@@ -131,7 +152,6 @@
     headerView.pollMessageDelegate =self;
     PollMessageGroup *group =_arrayData[section];
     headerView.pollMessGroup =group;
-    headerView.titleName =group.titleName;
     return headerView;
 }
 

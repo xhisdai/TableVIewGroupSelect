@@ -22,8 +22,6 @@
 		7C12FBAF1DA8DCEA00EAC78A /* buddy_header_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C12FBAA1DA8DCEA00EAC78A /* buddy_header_bg.png */; };
 		7C12FBB01DA8DCEA00EAC78A /* buddy_header_bg_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C12FBAB1DA8DCEA00EAC78A /* buddy_header_bg_highlighted.png */; };
 		7C12FBB11DA8DCEA00EAC78A /* buddy_header_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C12FBAC1DA8DCEA00EAC78A /* buddy_header_arrow.png */; };
-		7C12FBB21DA8DCEA00EAC78A /* pollMess_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C12FBAD1DA8DCEA00EAC78A /* pollMess_off@2x.png */; };
-		7C12FBB31DA8DCEA00EAC78A /* pollMess_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C12FBAE1DA8DCEA00EAC78A /* pollMess_on@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,8 +50,6 @@
 		7C12FBAA1DA8DCEA00EAC78A /* buddy_header_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buddy_header_bg.png; sourceTree = "<group>"; };
 		7C12FBAB1DA8DCEA00EAC78A /* buddy_header_bg_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buddy_header_bg_highlighted.png; sourceTree = "<group>"; };
 		7C12FBAC1DA8DCEA00EAC78A /* buddy_header_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buddy_header_arrow.png; sourceTree = "<group>"; };
-		7C12FBAD1DA8DCEA00EAC78A /* pollMess_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pollMess_off@2x.png"; sourceTree = "<group>"; };
-		7C12FBAE1DA8DCEA00EAC78A /* pollMess_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pollMess_on@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +103,6 @@
 				7C12FBAA1DA8DCEA00EAC78A /* buddy_header_bg.png */,
 				7C12FBAB1DA8DCEA00EAC78A /* buddy_header_bg_highlighted.png */,
 				7C12FBAC1DA8DCEA00EAC78A /* buddy_header_arrow.png */,
-				7C12FBAD1DA8DCEA00EAC78A /* pollMess_off@2x.png */,
-				7C12FBAE1DA8DCEA00EAC78A /* pollMess_on@2x.png */,
 				7C12FB891DA8D7E500EAC78A /* LaunchScreen.storyboard */,
 				7C12FB8C1DA8D7E500EAC78A /* Info.plist */,
 				7C12FB7B1DA8D7E500EAC78A /* Supporting Files */,
@@ -184,8 +178,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C12FB8B1DA8D7E500EAC78A /* LaunchScreen.storyboard in Resources */,
-				7C12FBB21DA8DCEA00EAC78A /* pollMess_off@2x.png in Resources */,
-				7C12FBB31DA8DCEA00EAC78A /* pollMess_on@2x.png in Resources */,
 				7C12FB881DA8D7E500EAC78A /* Assets.xcassets in Resources */,
 				7C12FBB01DA8DCEA00EAC78A /* buddy_header_bg_highlighted.png in Resources */,
 				7C12FBAF1DA8DCEA00EAC78A /* buddy_header_bg.png in Resources */,

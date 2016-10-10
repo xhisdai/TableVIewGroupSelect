@@ -21,7 +21,7 @@
         titleName =[dict objectForKey:@"title"];
         NSArray *array =[dict objectForKey:@"data"];
         for (int i= 0; i<[array count]; i++) {
-            PollMessageModel *model =[PollMessageModel initWithDic:@{@"title":[[array objectAtIndex:i] objectForKey:@"content"],@"image":@1,@"id":[[array objectAtIndex:i] objectForKey:@"id"],}];
+            PollMessageModel *model =[PollMessageModel initWithDic:@{@"title":[[array objectAtIndex:i] objectForKey:@"content"],@"image":@0,@"id":[[array objectAtIndex:i] objectForKey:@"id"],}];
             [PollMessArrays addObject:model];
         }
     }

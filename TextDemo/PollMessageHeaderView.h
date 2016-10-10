@@ -12,8 +12,8 @@
 
 @protocol PollMessageHeaderDelegate <NSObject>
 
--(void)ClickHeaderViewButton;
-
+- (void)ClickHeaderViewButton;
+- (void)ClickSelectGroupButton:(UIButton *)sender;
 @end
 
 @interface PollMessageHeaderView : UITableViewHeaderFooterView
@@ -21,10 +21,10 @@
 @property (nonatomic ,strong)id<PollMessageHeaderDelegate> pollMessageDelegate;
 
 @property (nonatomic ,strong)PollMessageGroup *pollMessGroup;
-@property (nonatomic ,strong)NSString *titleName;
+//@property (nonatomic ,strong)NSString *titleName;
 
 @property (nonatomic ,strong)UIButton *backGroundBtn;
-@property (nonatomic ,strong)UIImageView *clickImage;
+@property (nonatomic ,strong)UIButton *selectGroundBtn;
 
 +(instancetype)createHeaderViewForTableView:(UITableView *)tableView sect:(NSInteger)section;
 

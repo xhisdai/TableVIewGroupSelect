@@ -11,6 +11,6 @@
 
 @interface PollMessageController : UIViewController<PollMessageTableDelegate>
 
-@property (strong, nonatomic)PollMessageTableView *table_view;
+@property (strong, nonatomic)PollMessageTableView *tableView;
 
 @end

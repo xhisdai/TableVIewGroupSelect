@@ -22,11 +22,9 @@
     static NSString *headIdentifier = @"header";
     PollMessageHeaderView * headerView =nil;
 //    PollMessageHeaderView * headerView =[tableView dequeueReusableHeaderFooterViewWithIdentifier:headIdentifier];不重用
-    
     if (headerView == nil) {
         headerView = [[PollMessageHeaderView alloc] initWithReuseIdentifier:headIdentifier sect:section];
     }
-    
     return headerView;
 }
 
@@ -49,14 +47,52 @@
         bgButton.tag =section;
         _backGroundBtn =bgButton;
         
-        UIImageView *image =[[UIImageView alloc]init];
-        [self addSubview:image];
-        image.tag =100 +section;
-        _clickImage =image;
+        UIButton * btn =[UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"pollMess_off"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(SelectGroupBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:btn];
+        btn.tag =section * 1000;
+        _selectGroundBtn =btn;
         
     }
     
     return self;
+}
+
+- (void)setPollMessGroup:(PollMessageGroup *)pollMessGroup{
+    _pollMessGroup =pollMessGroup;
+    [_backGroundBtn setTitle:_pollMessGroup.titleName forState:UIControlStateNormal];
+    
+    if (_pollMessGroup.isOK) {
+        
+        [_selectGroundBtn setImage:[UIImage imageNamed:@"pollMess_on"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_selectGroundBtn setImage:[UIImage imageNamed:@"pollMess_off"] forState:UIControlStateNormal];
+    }
+    _selectGroundBtn.selected =_pollMessGroup.isOK;
+}
+
+- (void)SelectGroupBtnClick:(UIButton *)sender{
+    sender.selected =!sender.selected;
+    _pollMessGroup.isOK =sender.selected;
+    
+    for(PollMessageModel * model in _pollMessGroup.PollMessArrays)
+    {
+        if (_pollMessGroup.isOK ==YES) {
+            model.imgBool =@1;
+        }
+        else
+        {
+            model.imgBool =@0;
+        }
+        
+    }
+    if ([_pollMessageDelegate respondsToSelector:@selector(ClickSelectGroupButton:)]) {
+        [_pollMessageDelegate ClickSelectGroupButton:_selectGroundBtn];
+    }
+    
 }
 
 - (void)headBtnClick:(UIButton *)sender{
@@ -69,24 +105,11 @@
     
 }
 
--(void)setTitleName:(NSString *)titleName{
-    _titleName =titleName;
-    [_backGroundBtn setTitle:titleName forState:UIControlStateNormal];
-    [_clickImage setImage:[UIImage imageNamed:@"pollMess_on"]];
-    for(PollMessageModel *model in _pollMessGroup.PollMessArrays){
-        
-        if ([model.imgBool intValue] !=1) {
-            [_clickImage setImage:[UIImage imageNamed:@"pollMess_off"]];
-            break;
-        }
-    }
-}
-
 -(void)layoutSubviews{
     
     _backGroundBtn.frame =self.bounds;
     CGFloat clickWidth =self.bounds.size.height-8;
-    _clickImage.frame =CGRectMake(self.bounds.size.width -clickWidth-5, 4, clickWidth, clickWidth);
+    _selectGroundBtn.frame =CGRectMake(self.bounds.size.width -clickWidth-5, 4, clickWidth, clickWidth);
 }
 
 -(void)didMoveToSuperview{
